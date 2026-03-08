@@ -1,3 +1,4 @@
+**CSS (style.css):**
 * {
   margin: 0;
   padding: 0;
@@ -17,14 +18,12 @@ header {
   padding: 20px;
 }
 
-head h1 {
-  margin-bottom: 10px;
-}
-
 .container {
-  display: grid;  /* Estilo de Grade */
+  display: grid;
   gap: 15px;
-  padding: 20px
+  padding: 20px;
+  /* Mobile first: 1 coluna */
+  grid-template-columns: 1fr;
 }
 
 .card {
@@ -32,6 +31,8 @@ head h1 {
   border: 1px solid #ccc;
   padding: 30px 20px;
   text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .card h2 {
@@ -51,20 +52,21 @@ footer {
   padding: 15px;
 }
 
-/* Estilos para telas maiores e Menores */
-@media (min-width: 1280px) {
+/* Break points conforme roteiro */
+@media (min-width: 480px) and (max-width: 767px) {
   .container {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 1280px) and (min-width: 1279px) {
+@media (min-width: 768px) and (max-width: 1279px) {
   .container {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (min-width: 480px) and (max-width: 767px) {
+@media (min-width: 1280px) {
   .container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
+}
